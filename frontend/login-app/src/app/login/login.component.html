@@ -1,0 +1,31 @@
+
+<body>
+<mat-card appearance="outlined">
+  <mat-card-title>
+    <h1>User Login</h1>
+  </mat-card-title>
+    <mat-card-content>
+
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+        <mat-form-field class="example-full-width">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button type="submit">Submit</button>
+            <a routerLink="/register" mat-flat-button>New User</a>
+        </div>
+      </form>
+
+</mat-card-content>
+</mat-card>
+
+</body>

@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  /* ===== SÖTÉTEBB HÁTTÉR GRADIENT ===== */
+  background: linear-gradient(135deg, #03000d, #2b0057);
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  background-color: #0d001f;
+}
+
+.mat-mdc-dialog-inner-container {
+    background: none;
+    box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+    border-radius: 28px;       /* sarkak */
+    overflow: visible;       
+}
+
+.mdc-label {
+  color:#c89bff !important;
+  font-weight: bolder;
+}
+
+.mat-mdc-dialog-container {
+  background-color: #0d001f;
+  border-radius: 28px;
+  overflow: visible;  /* fontos, hogy ne vágja le a shadow-t */
+}
+
+.mat-mdc-dialog-inner-container {
+  background: none;
+  box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+  border-radius: 28px;
+  overflow: visible;
+}
+.mat-mdc-floating-label {
+  color:#c89bff !important;
+  font-weight: bolder;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  color: #c89bff !important;
+  font-weight: 600;
+}
