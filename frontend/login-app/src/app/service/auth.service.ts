@@ -27,6 +27,19 @@ export class AuthService {
     return this._http.get('http://localhost:3000/roles');
   }
 
+  
+ 
+   
+  // getAllCat(){
+  //    return this._http.get('http://localhost:3000/subscriptions-with-category');
+  //  }
+
+  
+ getAllCat() {
+  // visszaadja az összes szolgáltatást a backendből
+  return this._http.get<any[]>('http://localhost:3000/subscriptions-with-category');
+}
+
   proceedRegister(inputData:any){
     return this._http.post(this.apiUrl, inputData);
   }

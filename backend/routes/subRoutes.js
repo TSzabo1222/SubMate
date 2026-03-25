@@ -32,11 +32,8 @@ router.delete('/subscription/:id', subscriptController.deleteSubscription);
 router.get('/role/:id', rolesController.getRoleById);
 router.get('/roles', rolesController.getRoles);
 
+// //user + cat
+// SZOLG + KATEGÓRIA összekapcsolva
+router.get('/subscriptions-with-category', subController.getSubscriptionsWithCategory);
 
-/*
-//VEZERLOPULT
-router.get('/login',....);
-router.get('/logout',....);
-router.get('/dashboard'.....); // felhasználó szolgáltatásai...
-*/
 module.exports = router;

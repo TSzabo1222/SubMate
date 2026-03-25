@@ -29,6 +29,7 @@ import { UpdatepoopupservicesComponent } from './updatepoopupservices/updatepoop
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInput } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ServicecardsComponent } from './servicecards/servicecards.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     UserlistingComponent,
     UpdatepopupComponent,
     ServicesComponent,
-    UpdatepoopupservicesComponent
+    UpdatepoopupservicesComponent,
+    ServicecardsComponent
   ],
   imports: [
     BrowserModule,
