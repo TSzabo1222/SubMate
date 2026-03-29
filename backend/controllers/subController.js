@@ -80,29 +80,23 @@ async function deleteSubscription(req, res) {
     
 }
 
-// Lekéri a szolgáltatásokat a kategóriával és felhasználóval
-exports.getAllSubscriptionsWithCategory = (req, res) => {
-  const sql = `
-    SELECT s.serv_id, s.serv_name, s.serv_start, s.serv_end, s.cost,
-           c.cat_name,
-           u.u_name AS user_name
-    FROM services s
-    LEFT JOIN category c ON s.cat_id = c.cat_id
-    LEFT JOIN user u ON s.user_id = u.user_id
-  `;
-  
-  db.query(sql, (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json(results);
-  });
-};
 
+
+
+async function getAllSubscriptionsWithCategory(req, res) {
+  try {
+    const data = await subsModel.getAllSubscriptionsWithCategory();
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
 
 module.exports = {
     getAllSubscriptions,
     getSubscriptionById,
     addSubscription,
     updateSubscription,
-    deleteSubscription, 
-    // getSubscriptionsWithCategory
+    deleteSubscription,
+    getAllSubscriptionsWithCategory
 };

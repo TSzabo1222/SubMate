@@ -13,20 +13,6 @@ exports.getAllCategories = () => {
   });
 };
 
-// // Kategória lekérése ID alapján
-// exports.getCategoryByName = (cat_name) => {
-//   return new Promise((resolve, reject) => {
-//     db.query("SELECT cat_id FROM category WHERE cat_name = (?)", [cat_name],
-//       (err, results) => {
-//        if (err) return reject(err);
-
-//       if (results.length === 0){
-//         return reject({status: 404, message: "Kategória nem található!"});
-//       }
-//       resolve(results);
-//     });
-//   });
-// };
 
 // Kategória lekérése ID alapján
 exports.getCategoryByName = (cat_name) => {

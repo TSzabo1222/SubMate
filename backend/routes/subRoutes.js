@@ -34,6 +34,6 @@ router.get('/roles', rolesController.getRoles);
 
 // //user + cat
 // SZOLG + KATEGÓRIA összekapcsolva
-router.get('/subscriptions-with-category', subController.getSubscriptionsWithCategory);
+router.get('/subscriptions-with-category', subscriptController.getAllSubscriptionsWithCategory);
 
 module.exports = router;

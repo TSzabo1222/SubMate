@@ -10,17 +10,6 @@ exports.getAllUsers = () => {
   });
 };
 
-// // User lekérése felhasználónév alapján
-// exports.getUser = (u_name,pw) => {
-//   return new Promise((resolve, reject) => {
-//     db.query("SELECT user_id FROM user WHERE user_name like (?) AND pw like (?)", [u_name,pw],
-//       (err, results) => {
-//       if (err) return reject(err);
-//       resolve(results);
-//     });
-//   });
-// };
-
 
 // User lekérése felhasználónév alapján
 exports.getUser = (id) => {
