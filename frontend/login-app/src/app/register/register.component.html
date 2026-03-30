@@ -3,22 +3,22 @@
     <div class="container-fluid">
       <mat-card appearance="outlined">
         <mat-card-title>
-          <h1>User registration</h1>
+          <h1>Regisztráció</h1>
         </mat-card-title>
         <mat-card-content>
           <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
             <mat-form-field class="example-full-width">
-              <mat-label>User Name</mat-label>
+              <mat-label>Felhasználónév</mat-label>
               <input matInput formControlName="id">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Name</mat-label>
+              <mat-label>Név</mat-label>
               <input matInput formControlName="u_name">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
+              <mat-label>Jelszó</mat-label>
               <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="pw">
               <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
                 <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -32,14 +32,14 @@
 
             <div>
               <mat-radio-group aria-label="Gender" formControlName="gender">
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-button value="male">Férfi</mat-radio-button>
+                <mat-radio-button value="female">Nő</mat-radio-button>
               </mat-radio-group>
             </div>
 
             <div>
-              <button mat-raised-button type="submit">Submit</button>
-              <a routerLink="/login" mat-flat-button>Back to Login</a>
+              <button mat-raised-button type="submit">Regisztráció</button>
+              <a routerLink="/login" mat-flat-button>Vissza a Bejelentkezéshez</a>
             </div>
           </form>
         </mat-card-content>
