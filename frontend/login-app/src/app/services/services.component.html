@@ -1,4 +1,3 @@
-
 <!-- CREATE TABLE services (
   serv_id INT AUTO_INCREMENT PRIMARY KEY,
   serv_name VARCHAR(20) NOT NULL,
@@ -7,38 +6,32 @@
   serv_end DATE NOT NULL,
   user_id INT,
   cost INT, -->
-  <h4>Kategória választás</h4>
+<h4>Kategória választás</h4>
 <mat-form-field>
   <mat-label>Kategóriák</mat-label>
   <mat-select>
     @for (cat of categories; track cat) {
-      <mat-option [value]="cat.value">{{cat.viewValue}}</mat-option>
+    <mat-option [value]="cat.value">{{cat.viewValue}}</mat-option>
     }
   </mat-select>
 </mat-form-field>
 
- <a  (click)="Teszt()" mat-raised-button type="submit">Add</a>
+<a (click)="Teszt()" mat-raised-button type="submit">Add</a>
 
-<div class="container mt-4">
-  <div class="row">
-
-    <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let categories of services">
-      <mat-card>
-        <mat-card-title class="text-center mt-1">{{ cat.cat_id }}</mat-card-title>
-        <mat-card-content>
-        <p>{{ cat.cat_name }}</p>
-        <p>{{ cat.valid }}</p>
-         <p><strong>Kategória:</strong> {{ serv.cat_name }}</p>
-          <p><strong>Felhasználó:</strong> {{ serv.user_name }}</p>
-          <p><strong>Kezdete:</strong> {{ serv.serv_start }}</p>
-          <p><strong>Vége:</strong> {{ serv.serv_end }}</p>
-          <p><strong>Ár:</strong> {{ serv.cost }} Ft</p>
-      
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-  </div>
+<div class="services-container">
+  <mat-card *ngFor="let serv of services" class="service-card">
+    <mat-card-header>
+      <mat-card-title>{{ serv.cat_name }}</mat-card-title>
+      <mat-card-subtitle>Felhasználó: {{ serv.user_name }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Kezdete:</strong> {{ serv.serv_start }}</p>
+      <p><strong>Vége:</strong> {{ serv.serv_end }}</p>
+      <p><strong>Ár:</strong> {{ serv.cost }} Ft</p>
+      <p><strong>Érvényes:</strong> {{ serv.valid ? 'Igen' : 'Nem' }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button >Szerkesztés</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-
- 
