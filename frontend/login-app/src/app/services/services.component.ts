@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepoopupservicesComponent } from '../updatepoopupservices/updatepoopupservices.component';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../service/auth.service';
 
 interface Food {
   value: string;
@@ -12,9 +14,14 @@ interface Food {
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
 
-  constructor(private dialog:MatDialog){}
+  title = 'kartya-app';
+  // category: any;
+ 
+  services: any[] = [];
+
+  constructor(private dialog:MatDialog, private http:HttpClient, private service:AuthService){}
 
   categories: Food[] = [
     {value: '0', viewValue: 'Szórakozás'},
@@ -41,4 +48,32 @@ export class ServicesComponent {
       opendialog(){
         //this.loadUser();
       }
+
+
+    
+
+     
+      // ngOnInit(): void {
+        
+      //   this.service.getAllCat().subscribe({
+          
+      //      next:(data)=>{
+      //       this.category=data;
+      //       console.log(data);
+            
+      //      }
+      //   })
+
+        ngOnInit(): void {
+    this.service.getAllCat().subscribe({
+      next: (data: any[]) => {
+        this.services = data; // ide kerül a backendből jövő összes adat
+        console.log(this.services);
+      },
+      error: (err) => console.error(err)
+    });
+
+    }
 }
+
+

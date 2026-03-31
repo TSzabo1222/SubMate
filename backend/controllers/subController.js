@@ -80,10 +80,23 @@ async function deleteSubscription(req, res) {
     
 }
 
+
+
+
+async function getAllSubscriptionsWithCategory(req, res) {
+  try {
+    const data = await subsModel.getAllSubscriptionsWithCategory();
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
     getAllSubscriptions,
     getSubscriptionById,
     addSubscription,
     updateSubscription,
-    deleteSubscription
+    deleteSubscription,
+    getAllSubscriptionsWithCategory
 };

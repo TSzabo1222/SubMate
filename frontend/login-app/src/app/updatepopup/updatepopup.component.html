@@ -1,15 +1,15 @@
 <mat-card>
   <mat-card-title>
-    <h3>Update User</h3>
+    <h3>Felhasználó Frissítés</h3>
   </mat-card-title>
     <mat-card-content>
 
       <form class="example-form" [formGroup]="registerForm" (ngSubmit)="UpdateUser()">
         
         <mat-form-field class="example-full-width">
-          <mat-label>Role</mat-label>
+          <mat-label>Jogosultság</mat-label>
         <mat-select formControlName="u_role">
-            <mat-option value="">Select Role</mat-option>
+            <mat-option value="">Válasszon jogosultságot</mat-option>
             <!--<mat-option value="admin">admin</mat-option>
             <mat-option value="staff">staff</mat-option>-->
             <mat-option *ngFor="let item of rolelist" [value]="item.roles">
@@ -18,11 +18,11 @@
         </mat-select>
         </mat-form-field>
         <div>
-            <mat-checkbox formControlName="isactive" class="example-margin" >Is Active </mat-checkbox>
+            <mat-checkbox formControlName="isactive" class="example-margin">Érvényes</mat-checkbox>
         </div>
         <div>
-            <button mat-raised-button type="submit">Update</button>
-            <a mat-dialog-close mat-flat-button>Close</a>
+            <button mat-raised-button type="submit">Frissítés</button>
+            <a mat-dialog-close mat-flat-button>Bezárás</a>
         </div>
       </form>
 

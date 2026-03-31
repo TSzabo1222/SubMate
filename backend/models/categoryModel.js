@@ -13,10 +13,11 @@ exports.getAllCategories = () => {
   });
 };
 
+
 // Kategória lekérése ID alapján
 exports.getCategoryByName = (cat_name) => {
   return new Promise((resolve, reject) => {
-    db.query("SELECT cat_id FROM category WHERE cat_name = (?)", [cat_name],
+    db.query("SELECT cat_id FROM category WHERE cat_name = (?)", [cat_name,],
       (err, results) => {
        if (err) return reject(err);
 

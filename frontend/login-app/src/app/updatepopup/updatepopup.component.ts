@@ -37,12 +37,12 @@ export class UpdatepopupComponent implements OnInit {
       console.log("id",this.registerForm.value.id);
       this.service.updateUser(this.registerForm.value.id,this.registerForm.value).subscribe({
         next: (res)=>{
-          this.toastr.success('Updated successfully.');
+          this.toastr.success('Sikeres frissítés.');
           this.dialog.close();
         }
       })
     } else {
-      this.toastr.warning('Please Select Role.')
+      this.toastr.warning('Kérem válasszon jogosultságot.')
     }
   }
 

@@ -13,11 +13,6 @@ CREATE TABLE user (
   u_role VARCHAR(20) NOT NULL  
 );
 
--- CREATE TABLE roles (
---   role_id INT AUTO_INCREMENT PRIMARY KEY,
---   roles VARCHAR(20) NOT NULL
--- );
-
 
 -- Jogosultságok
 CREATE TABLE roles (
@@ -51,10 +46,6 @@ CREATE TABLE services (
 );
 
 
-
--- INSERT INTO user (id, u_name, pw, email)
--- VALUES ('testuser','Teszt Elek','Test123!','test@test.hu');
-
 INSERT INTO `user`
 (`user_id`, `id`, `u_name`, `pw`, `email`, `gender`, `isactive`, `u_role`)
 VALUES
@@ -76,6 +67,8 @@ INSERT INTO services (serv_name, cat_id, serv_start, serv_end, user_id, cost)
 VALUES
 ('Netflix', 1, '2024-01-01', '2025-01-01', 1, 3500),
 ('Spotify', 1, '2024-03-01', '2025-03-01', 1, 4000);
+
+
 
 
 -- időtartamra javitás 

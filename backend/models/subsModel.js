@@ -78,3 +78,31 @@ exports.deleteSubscription = (id) => {
     );
   });
 };
+
+
+
+// Lekéri a szolgáltatásokat a kategóriával és felhasználóval
+exports.getAllSubscriptionsWithCategory = () => {
+  return new Promise((resolve, reject) => {
+    db.query(`
+     SELECT s.serv_id,
+       s.serv_name,
+       s.serv_start,
+       s.serv_end,
+       s.cost,
+       c.cat_id,
+       c.cat_name,
+       u.user_id,
+       u.u_name AS user_name
+FROM services s
+LEFT JOIN category c ON s.cat_id = c.cat_id
+LEFT JOIN user u ON s.user_id = u.user_id;
+    `, (err, results) => {
+      if (err) return reject(err);
+      resolve(results);
+    });
+  });
+};
+
+
+

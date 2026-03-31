@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServicesComponent } from './services.component';
+import { ServicecardsComponent } from './servicecards.component';
 
-
-describe('ServicesComponent', () => {
-  let component: ServicesComponent;
-  let fixture: ComponentFixture<ServicesComponent>;
+describe('ServicecardsComponent', () => {
+  let component: ServicecardsComponent;
+  let fixture: ComponentFixture<ServicecardsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ServicesComponent]
+      declarations: [ServicecardsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ServicesComponent);
+    fixture = TestBed.createComponent(ServicecardsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,8 +20,4 @@ describe('ServicesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-
 });
-

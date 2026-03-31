@@ -11,16 +11,6 @@ exports.getUsers = async (req, res) => {
   }
 };
 
-// //GET / user (login controller ???)
-// exports.getUserByPass = async (req, res) => {
-//   try {
-//     const { u_name, pw } = req.body;
-//     const user = await User.getUser(u_name, pw);
-//     res.json(user);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// };
 
 //GET / user (login controller ???)
 exports.getUserByPass = async (req, res) => {
