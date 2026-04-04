@@ -1,164 +1,84 @@
-# 🚀 SubMate telepítési útmutató
-
-## 📦 1. Követelmények
+Telepítési útmutató:
 
 Győződj meg róla, hogy ezek telepítve vannak:
+Node.js (ajánlott: 18+)
+npm (Node.js-sel jön)
 
-* Node.js (ajánlott: 18+)
-* npm (Node.js-sel jön)
-* Git
-
+Git:
 Ellenőrzés:
-
-```bash
+bash
 node -v
 npm -v
 git --version
-```
 
----
-
-## 📥 2. Projekt letöltése
-
-```bash
+Projekt letöltése:
 git clone https://github.com/TSzabo1222/SubMate.git
 cd SubMate
-```
 
----
-
-## ⚙️ 3. Backend beállítása
-
-```bash
+Backend beállítása:
+bash
 cd backend
 npm install
-```
 
-### ▶️ Backend indítása:
-
-```bash
-npm start
-```
-
-vagy:
-
-```bash
+Backend indítása:
 node server.js
-```
+vagy:
+npm start
 
----
-
-## 🌐 4. Frontend (Angular) beállítása
-
+Frontend (Angular) beállítása:
 Új terminálban:
-
-```bash
 cd frontend/login-app
 npm install
-```
 
----
-
-## 🅰️ 5. Angular CLI telepítése
-
-```bash
+Angular CLI telepítése (ha még nincs):
 npm install -g @angular/cli
-```
+
+Angular Material hozzáadása:
+ng add @angular/material
 
 Ellenőrzés:
-
-```bash
 ng version
-```
 
----
-
-## ▶️ 6. Frontend indítása
-
+Frontend indítása:
 Elsődleges módszer:
-
-```bash
 ng serve -o
-```
 
----
-
-### 🔁 Alternatíva (ha az `ng` nem működik)
-
-```bash
+Alternatíva (ha az `ng` nem működik):
 npx ng serve -o
-```
 
----
-
-## 🌍 7. Elérés
-
+Elérés
 Frontend:
-
-```
 http://localhost:4200
-```
 
 Backend:
-
-```
 http://localhost:3000
-```
 
----
-
-## ❗ Gyakori hibák
-
-### 🔸 "ng is not recognized"
-
-➡️ Telepítsd:
-
-```bash
+Gyakori hibák:
+"ng is not recognized"
+Telepítsd:
 npm install -g @angular/cli
-```
+"MODULE_NOT_FOUND"
 
----
-
-### 🔸 "MODULE_NOT_FOUND"
-
-➡️ Hiányzó csomag:
-
-```bash
+Hiányzó csomag:
 npm install
-```
 
----
+"destination path already exists"
 
-### 🔸 "destination path already exists"
+A mappa már létezik:
+-töröld vagy
+-használj másik mappanevet
 
-➡️ A mappa már létezik:
+Rossz parancs esetén:
 
-* töröld vagy
-* használj másik mappanevet
-
----
-
-### 🔸 Rossz parancs
-
-❌ Ne ezt használd:
-
-```bash
+Ne ezt használd:
 npx serve
-```
 
-✅ Hanem:
-
-```bash
+Hanem:
 ng serve
-```
-
----
-
-## ✅ Kész!
 
 Ha mindent jól csináltál:
+Backend fut
+Angular app betölt a böngészőben 🎉
 
-* Backend fut
-* Angular app betölt a böngészőben 🎉
 
----
+
