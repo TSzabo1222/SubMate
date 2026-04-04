@@ -1,0 +1,164 @@
+# 🚀 SubMate telepítési útmutató
+
+## 📦 1. Követelmények
+
+Győződj meg róla, hogy ezek telepítve vannak:
+
+* Node.js (ajánlott: 18+)
+* npm (Node.js-sel jön)
+* Git
+
+Ellenőrzés:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+---
+
+## 📥 2. Projekt letöltése
+
+```bash
+git clone https://github.com/TSzabo1222/SubMate.git
+cd SubMate
+```
+
+---
+
+## ⚙️ 3. Backend beállítása
+
+```bash
+cd backend
+npm install
+```
+
+### ▶️ Backend indítása:
+
+```bash
+npm start
+```
+
+vagy:
+
+```bash
+node server.js
+```
+
+---
+
+## 🌐 4. Frontend (Angular) beállítása
+
+Új terminálban:
+
+```bash
+cd frontend/login-app
+npm install
+```
+
+---
+
+## 🅰️ 5. Angular CLI telepítése
+
+```bash
+npm install -g @angular/cli
+```
+
+Ellenőrzés:
+
+```bash
+ng version
+```
+
+---
+
+## ▶️ 6. Frontend indítása
+
+Elsődleges módszer:
+
+```bash
+ng serve -o
+```
+
+---
+
+### 🔁 Alternatíva (ha az `ng` nem működik)
+
+```bash
+npx ng serve -o
+```
+
+---
+
+## 🌍 7. Elérés
+
+Frontend:
+
+```
+http://localhost:4200
+```
+
+Backend:
+
+```
+http://localhost:3000
+```
+
+---
+
+## ❗ Gyakori hibák
+
+### 🔸 "ng is not recognized"
+
+➡️ Telepítsd:
+
+```bash
+npm install -g @angular/cli
+```
+
+---
+
+### 🔸 "MODULE_NOT_FOUND"
+
+➡️ Hiányzó csomag:
+
+```bash
+npm install
+```
+
+---
+
+### 🔸 "destination path already exists"
+
+➡️ A mappa már létezik:
+
+* töröld vagy
+* használj másik mappanevet
+
+---
+
+### 🔸 Rossz parancs
+
+❌ Ne ezt használd:
+
+```bash
+npx serve
+```
+
+✅ Hanem:
+
+```bash
+ng serve
+```
+
+---
+
+## ✅ Kész!
+
+Ha mindent jól csináltál:
+
+* Backend fut
+* Angular app betölt a böngészőben 🎉
+
+---
