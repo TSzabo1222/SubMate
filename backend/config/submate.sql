@@ -38,6 +38,7 @@ CREATE TABLE services (
   serv_name VARCHAR(20) NOT NULL,
   cat_id INT,
   serv_start DATE NOT NULL,
+  serv_current DATE NOT NULL,
   serv_end DATE NOT NULL,
   user_id INT,
   cost INT,
@@ -63,10 +64,12 @@ INSERT INTO category (cat_name) VALUES
 ('Szoftver'),
 ('Egészség');
 
-INSERT INTO services (serv_name, cat_id, serv_start, serv_end, user_id, cost)
+INSERT INTO services (serv_name, cat_id, serv_start, serv_current, serv_end, user_id, cost)
 VALUES
-('Netflix', 1, '2024-01-01', '2025-01-01', 1, 3500),
-('Spotify', 1, '2024-03-01', '2025-03-01', 1, 4000);
+('HBO Max', 1, '2022-01-01', '2026-04-20', '2026-04-21', 1, 3500),
+('Netflix', 2, '2024-01-01', '2026-04-16', '2026-04-16', 1, 3500),
+('Spotify', 3, '2024-03-01', '2026-04-12', '2026-04-13', 1, 4000),
+('Disney+', 1, '2024-03-01', '2026-04-10', '2026-04-10', 1, 4000)
 
 
 

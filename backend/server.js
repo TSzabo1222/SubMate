@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+require('./cron/expirationChecker');
 
 const subRoutes = require('./routes/subRoutes');
 

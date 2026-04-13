@@ -81,8 +81,6 @@ async function deleteSubscription(req, res) {
 }
 
 
-
-
 async function getAllSubscriptionsWithCategory(req, res) {
   try {
     const data = await subsModel.getAllSubscriptionsWithCategory();
@@ -92,11 +90,25 @@ async function getAllSubscriptionsWithCategory(req, res) {
   }
 }
 
+async function getExpiringSubscriptions(req, res) {
+  //const days = req.query.days || 7;
+  const days = 7;
+  const { id } = req.params;
+  try {
+    const data = await subsModel.getSubscriptionExpById(id);
+    console.log("Lejáró szolgáltatások:", data);
+    return res.status(200).json(data);
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
     getAllSubscriptions,
     getSubscriptionById,
     addSubscription,
     updateSubscription,
     deleteSubscription,
-    getAllSubscriptionsWithCategory
+    getAllSubscriptionsWithCategory,
+    getExpiringSubscriptions
 };

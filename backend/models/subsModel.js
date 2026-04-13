@@ -106,3 +106,53 @@ LEFT JOIN user u ON s.user_id = u.user_id;
 
 
 
+// // Lejáró szolgáltatások lekérése (pl. 7 napon belül)
+// exports.getSubscriptionExpById = (id) => {
+//   return new Promise((resolve, reject) => {
+//     db.query(`
+//       SELECT *,
+//         CASE 
+//           WHEN serv_end < NOW() THEN 'lejárt'
+//           WHEN serv_current 
+//           WHEN serv_end <= DATE_ADD(NOW(), INTERVAL 7 DAY) THEN 'hamarosan lejár'
+//           ELSE 'aktív'
+//         END as status
+//       FROM services
+//       WHERE serv_id = ?
+//     `, [id],
+//     (err, results) => {
+//       if (err) return reject(err);
+
+//       if (results.length === 0){
+//         return reject({status: 404, message: "Szolgáltatás nem található!"});
+//       }
+
+//       resolve(results[0]);
+//     });
+//   });
+// };
+
+
+exports.getSubscriptionExpById = (id) => {
+  return new Promise((resolve, reject) => {
+    db.query(`
+      SELECT *,
+        CASE 
+          WHEN serv_end < NOW() THEN 'Lejárt'
+          WHEN serv_end <= DATE_ADD(NOW(), INTERVAL 7 DAY) THEN 'Hamarosan lejár!'
+          ELSE 'Érvényes'
+        END AS status
+      FROM services
+      WHERE serv_id = ?
+    `, [id],
+    (err, results) => {
+      if (err) return reject(err);
+
+      if (results.length === 0){
+        return reject({status: 404, message: "Szolgáltatás nem található!"});
+      }
+
+      resolve(results[0]);
+    });
+  });
+};

@@ -26,7 +26,7 @@ router.get('/subscription/:id', subscriptController.getSubscriptionById);
 router.post('/subscription', subscriptController.addSubscription);
 router.put('/subscription/:id', subscriptController.updateSubscription);
 router.delete('/subscription/:id', subscriptController.deleteSubscription);
-
+router.get('/subscriptions/expiring/:id', subscriptController.getExpiringSubscriptions);
 
 //Jogosultság
 router.get('/role/:id', rolesController.getRoleById);
