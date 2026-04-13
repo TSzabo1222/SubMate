@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
 
-  title: string = 'Welcome to SubMate';
+  title: string = 'Üdvözöljük a SubMate oldalon';
   subtitle: string = '...';
 
 }

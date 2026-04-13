@@ -7,6 +7,7 @@ import { UserlistingComponent } from './userlisting/userlisting.component';
 import { authGuard } from './guard/auth.guard';
 import { ServicesComponent } from './services/services.component';
 import { ServicecardsComponent } from './servicecards/servicecards.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,canActivate:[authGuard]},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'user',component:UserlistingComponent},
   {path:'services',component:ServicesComponent},
-  {path: 'servicecards', component:ServicecardsComponent}
+  {path: 'servicecards', component:ServicecardsComponent},
+  {path:'about',component:AboutComponent}
 ];
 
 @NgModule({

@@ -30,6 +30,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInput } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ServicecardsComponent } from './servicecards/servicecards.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ServicecardsComponent } from './servicecards/servicecards.component';
     UpdatepopupComponent,
     ServicesComponent,
     UpdatepoopupservicesComponent,
-    ServicecardsComponent
+    ServicecardsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
