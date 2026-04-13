@@ -7,8 +7,6 @@ html, body {
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif;
-
-  /* ===== SÖTÉTEBB HÁTTÉR GRADIENT ===== */
   background: linear-gradient(135deg, #03000d, #2b0057);
 }
 
@@ -55,21 +53,111 @@ html, body {
   font-weight: 600;
 }
 
-/* .mat-mdc-input-element, .mat-mdc-form-field-input-control, .mdc-text-field__input , .cdk-text-field-autofill-monitored{ } */
 
-/* .mat-mdc-option, .mdc-list-item, .mat-mdc-option-active, .ng-tns-c1711764913-3, .ng-star-inserted{
-  background:#2b0057
+
+
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #c89bff !important;
+  --mdc-filled-text-field-label-text-color: #c89bff !important;
+  --mdc-filled-text-field-input-text-color:  #c89bff !important;
+}
+
+/* input szöveg */
+.mat-mdc-input-element {
+  color:#c89bff  !important;
+  font-weight: 500;
 }
 
 
-.ng-trigger, .ng-trigger-transformPanel , .ng-tns-c1711764913-3 ,.mat-mdc-select-panel, .mdc-menu-surface, .mdc-menu-surface--open, .mat-primary{
 
-} */
-/* .mat-ripple, .mat-mdc-option-ripple, .mat-mdc-focus-indicator{
-    color: #c89bff !important;
-   background:#2b0057
+.mat-mdc-form-field-infix {
+  width: 100% !important;
+  min-width: 0;
+  padding: 10px 12px;
+  box-sizing: border-box;
 }
-.ng-trigger, .ng-trigger-transformPanel{
-  
-   background-color: var(#2b0057);
-} */
+
+
+/* wrapper hover */
+.mat-mdc-text-field-wrapper:hover {
+  background-color: #220044 !important;
+  transition: 0.2s;
+}
+
+
+ .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  cursor: pointer;
+  background: #1a0033 !important;
+  border-radius: 10px;
+}
+
+
+
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 0 2px #8b5cf6;
+  border-radius: 10px;
+}
+
+
+.mat-mdc-floating-label {
+  color: #c084fc !important;
+}
+
+
+.mat-mdc-select-panel {
+  background-color: #1a0033 !important;
+  border-radius: 14px;
+  padding: 8px 0;
+  box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+
+
+.mat-mdc-option {
+  color:#c89bff  !important;
+  background: transparent !important;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+/* hover */
+ .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: linear-gradient(90deg,rgba(181, 122, 245, 0.4), #c89bff  ) !important;
+  color:#c89bff !important;
+}
+
+
+
+.mat-mdc-option.mdc-list-item--selected {
+   background: linear-gradient(90deg,rgba(181, 122, 245, 0.4), #c89bff  ) !important;
+  color:#c89bff  !important;
+  font-weight: 500;
+}
+
+
+
+.mat-mdc-option.mdc-list-item--active {
+  background: #4c1d95 !important;
+}
+
+
+
+.mat-ripple-element {
+  background-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+
+
+.cdk-overlay-pane {
+  border-radius: 14px;
+}
+
+
+.mat-mdc-select-panel {
+  background: rgba(26, 0, 51, 0.85) !important;
+  backdrop-filter: blur(12px);
+}
