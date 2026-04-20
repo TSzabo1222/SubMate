@@ -32,11 +32,14 @@ exports.getSubscriptionById = (id) => {
 };
 
 // Új szolgáltatás felvétele
-exports.createSubscription = (serv_name, cat_id, start, end, user_id) => {
+// CREATE
+exports.createSubscription = (serv_name, cat_id, serv_start, serv_end, cost, user_id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "INSERT INTO services (serv_name, cat_id, serv_start, serv_end, user_id) VALUES (?,?,?,?,?)",
-      [serv_name, cat_id, start, end, user_id],
+      `INSERT INTO services 
+      (serv_name, cat_id, serv_start, serv_end, cost, user_id)
+      VALUES (?, ?, ?, ?, ?, ?)`,
+      [serv_name, cat_id, serv_start, serv_end, cost, user_id],
       (err, result) => {
         if (err) return reject(err);
         resolve(result.insertId);
@@ -45,20 +48,17 @@ exports.createSubscription = (serv_name, cat_id, start, end, user_id) => {
   });
 };
 
-// Szolgáltatás frissítés
-exports.updateSubscription = (id, serv_name, cat_id, start, end, user_id) => {
+// UPDATE
+exports.updateSubscription = (id, serv_name, cat_id, serv_start, serv_end, cost, user_id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "UPDATE services SET serv_name = ?, cat_id = ?, serv_start = ?, serv_end = ?, user_id = ? WHERE serv_id = ?",
-      [serv_name, cat_id, start, end, user_id, id],
+      "UPDATE services SET serv_name = ?, cat_id = ?, serv_start = ?, serv_end = ?, cost = ?, user_id = ? WHERE serv_id = ?",
+      [serv_name, cat_id, serv_start, serv_end, cost, user_id, id],
       (err, result) => {
         if (err) return reject(err);
 
         if (result.affectedRows === 0) {
-          return reject({
-            status: 404,
-            message: "Nem sikerült a szolgáltatást frissíteni!",
-          });
+          return reject({ status: 404, message: "Nem sikerült a szolgáltatást frissíteni!" });
         }
 
         resolve(result);
