@@ -5,8 +5,8 @@ exports.getAllSubscriptions = () => {
   return new Promise((resolve, reject) => {
     db.query("SELECT * FROM services", (err, results) => {
       if (err) return reject(err);
-      if (results.length === 0){
-        return reject({status: 404, message: "Nincsenek szolgáltatások!"});
+      if (results.length === 0) {
+        return reject({ status: 404, message: "Nincsenek szolgáltatások!" });
       }
       resolve(results);
     });
@@ -16,24 +16,27 @@ exports.getAllSubscriptions = () => {
 // Szolgáltatás lekérése ID alapján
 exports.getSubscriptionById = (id) => {
   return new Promise((resolve, reject) => {
-    db.query("SELECT * FROM services WHERE szolg_azon = (?)", [id],
+    db.query(
+      "SELECT * FROM services WHERE cat_id = ?",
+      [id],
       (err, results) => {
-      if (err) return reject(err);
+        if (err) return reject(err);
 
-      if (results.length === 0){
-        return reject({status: 404, message: "Szolgáltatás nem található!"});
+        if (results.length === 0) {
+          return reject({ status: 404, message: "Szolgáltatás nem található!" });
+        }
+        resolve(results);
       }
-      resolve(results);
-    });
+    );
   });
 };
-
 
 // Új szolgáltatás felvétele
 exports.createSubscription = (serv_name, cat_id, start, end, user_id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "INSERT INTO szolgaltatasok (serv_name, cat_azon, kezdete, vege, user_id) VALUES (?,?,?,?,?)", [serv_name, cat_id, serv_start, serv_end, user_id],
+      "INSERT INTO services (serv_name, cat_id, serv_start, serv_end, user_id) VALUES (?,?,?,?,?)",
+      [serv_name, cat_id, start, end, user_id],
       (err, result) => {
         if (err) return reject(err);
         resolve(result.insertId);
@@ -42,16 +45,20 @@ exports.createSubscription = (serv_name, cat_id, start, end, user_id) => {
   });
 };
 
-//Szolgáltatás frissítés
+// Szolgáltatás frissítés
 exports.updateSubscription = (id, serv_name, cat_id, start, end, user_id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "UPDATE services SET serv_name = ?, cat_id = ?, serv_start = ?, serv_end = ?, user_id = ? WHERE serv_id = ?", [serv_name, cat_id, serv_start, serv_end, user_id, id],
+      "UPDATE services SET serv_name = ?, cat_id = ?, serv_start = ?, serv_end = ?, user_id = ? WHERE serv_id = ?",
+      [serv_name, cat_id, start, end, user_id, id],
       (err, result) => {
         if (err) return reject(err);
 
         if (result.affectedRows === 0) {
-           return reject({status: 404, message: "Nem sikerült a szolgáltatást frissíteni!"});
+          return reject({
+            status: 404,
+            message: "Nem sikerült a szolgáltatást frissíteni!",
+          });
         }
 
         resolve(result);
@@ -60,82 +67,55 @@ exports.updateSubscription = (id, serv_name, cat_id, start, end, user_id) => {
   });
 };
 
-
-//Szolgáltatás törlése
+// Szolgáltatás törlése
 exports.deleteSubscription = (id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "DELETE FROM services WHERE serv_id = ?", [id],
+      "DELETE FROM services WHERE serv_id = ?",
+      [id],
       (err, result) => {
-        
-        if (err) return reject(err.message);
+        if (err) return reject(err);
 
         if (result.affectedRows === 0) {
-           return reject({status: 404, message: "Nincs ilyen szolgáltatás!"});
+          return reject({ status: 404, message: "Nincs ilyen szolgáltatás!" });
         }
         resolve(result);
       }
     );
   });
 };
-
-
 
 // Lekéri a szolgáltatásokat a kategóriával és felhasználóval
 exports.getAllSubscriptionsWithCategory = () => {
   return new Promise((resolve, reject) => {
-    db.query(`
-     SELECT s.serv_id,
-       s.serv_name,
-       s.serv_start,
-       s.serv_end,
-       s.cost,
-       c.cat_id,
-       c.cat_name,
-       u.user_id,
-       u.u_name AS user_name
-FROM services s
-LEFT JOIN category c ON s.cat_id = c.cat_id
-LEFT JOIN user u ON s.user_id = u.user_id;
-    `, (err, results) => {
-      if (err) return reject(err);
-      resolve(results);
-    });
+    db.query(
+      `
+      SELECT s.serv_id,
+             s.serv_name,
+             s.serv_start,
+             s.serv_end,
+             s.cost,
+             c.cat_id,
+             c.cat_name,
+             u.user_id,
+             u.u_name AS user_name
+      FROM services s
+      LEFT JOIN category c ON s.cat_id = c.cat_id
+      LEFT JOIN user u ON s.user_id = u.user_id
+      `,
+      (err, results) => {
+        if (err) return reject(err);
+        resolve(results);
+      }
+    );
   });
 };
 
-
-
-// // Lejáró szolgáltatások lekérése (pl. 7 napon belül)
-// exports.getSubscriptionExpById = (id) => {
-//   return new Promise((resolve, reject) => {
-//     db.query(`
-//       SELECT *,
-//         CASE 
-//           WHEN serv_end < NOW() THEN 'lejárt'
-//           WHEN serv_current 
-//           WHEN serv_end <= DATE_ADD(NOW(), INTERVAL 7 DAY) THEN 'hamarosan lejár'
-//           ELSE 'aktív'
-//         END as status
-//       FROM services
-//       WHERE serv_id = ?
-//     `, [id],
-//     (err, results) => {
-//       if (err) return reject(err);
-
-//       if (results.length === 0){
-//         return reject({status: 404, message: "Szolgáltatás nem található!"});
-//       }
-
-//       resolve(results[0]);
-//     });
-//   });
-// };
-
-
+// Lejárat státusz lekérés
 exports.getSubscriptionExpById = (id) => {
   return new Promise((resolve, reject) => {
-    db.query(`
+    db.query(
+      `
       SELECT *,
         CASE 
           WHEN serv_end < NOW() THEN 'Lejárt'
@@ -144,15 +124,17 @@ exports.getSubscriptionExpById = (id) => {
         END AS status
       FROM services
       WHERE serv_id = ?
-    `, [id],
-    (err, results) => {
-      if (err) return reject(err);
+      `,
+      [id],
+      (err, results) => {
+        if (err) return reject(err);
 
-      if (results.length === 0){
-        return reject({status: 404, message: "Szolgáltatás nem található!"});
+        if (results.length === 0) {
+          return reject({ status: 404, message: "Szolgáltatás nem található!" });
+        }
+
+        resolve(results[0]);
       }
-
-      resolve(results[0]);
-    });
+    );
   });
 };
