@@ -1,0 +1,35 @@
+<div mat-dialog-title>
+  <h5>Szolgáltatás felvitele</h5>
+</div>
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <mat-form-field>
+    <mat-label>Név</mat-label>
+    <input matInput formControlName="serv_name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Kategória ID</mat-label>
+    <input matInput formControlName="cat_id">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Kezdés</mat-label>
+    <input matInput formControlName="serv_start">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Vége</mat-label>
+    <input matInput formControlName="serv_end">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Ár</mat-label>
+    <input matInput type="number" formControlName="cost">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    Mentés
+  </button>
+
+</form>

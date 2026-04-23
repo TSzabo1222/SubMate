@@ -1,0 +1,108 @@
+h4{
+  color:#c89bff;
+  margin-top:20px;
+}
+
+
+mat-form-field{
+  width:300px;
+  display:block;
+  margin-bottom:20px;
+}
+
+
+.mdc-text-field--outlined .mdc-notched-outline__leading,
+.mdc-text-field--outlined .mdc-notched-outline__notch,
+.mdc-text-field--outlined .mdc-notched-outline__trailing{
+  border-color:#3a0ca3 !important;
+}
+
+.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--focused .mdc-notched-outline__trailing{
+  border-color:#b57af5 !important;
+}
+
+.mdc-text-field{
+  background:#140028;
+  border-radius:8px !important;
+  box-shadow:0 4px 15px rgba(123,47,247,0.6);
+}
+
+.mdc-text-field__input{
+  color:#c89bff !important;
+}
+
+
+.mdc-floating-label{
+  color:#c89bff !important;
+}
+
+
+.mat-mdc-select-value{
+  color:#c89bff !important;
+}
+
+.md-clabel{ color:#c89bff !important;}
+
+a[mat-raised-button]{
+  background:linear-gradient(90deg,#7b2ff7,#b57af5) !important;
+  color:#c89bff !important;
+  font-weight:600;
+  border-radius:10px;
+  padding:8px 20px;
+  box-shadow:0 4px 15px rgba(123,47,247,0.6);
+  transition:0.3s;
+  text-decoration:none;
+}
+
+a[mat-raised-button]:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(181,122,245,0.8);
+}
+
+.mat-mdc-select-panel {  
+   background:#140028;
+  border-radius:8px !important;
+  box-shadow:0 4px 15px rgba(123,47,247,0.6);
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.service-card {
+  width: 300px;
+  background: #140028;
+  color: #c89bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(181, 122, 245, 0.8);
+}
+
+mat-card-title, mat-card-subtitle {
+  color: #b57af5;
+}
+
+button[mat-raised-button] {
+  background: linear-gradient(90deg, #7b2ff7, #b57af5);
+  color: #ebd8ff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(123, 47, 247, 0.6);
+  transition: all 0.3s ease;
+}
+
+button[mat-raised-button]:hover {
+  background: linear-gradient(90deg, #b57af5, #7b2ff7);
+  box-shadow: 0 6px 18px rgba(181, 122, 245, 0.7);
+  color: #ebd8ff;
+}

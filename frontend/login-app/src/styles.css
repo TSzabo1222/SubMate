@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #03000d, #2b0057);
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  background-color: #0d001f;
+}
+
+.mat-mdc-dialog-inner-container {
+    background: none;
+    box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+    border-radius: 28px;       /* sarkak */
+    overflow: visible;       
+}
+
+.mdc-label {
+  color:#c89bff !important;
+  font-weight: bolder;
+}
+
+.mat-mdc-dialog-container {
+  background-color: #0d001f;
+  border-radius: 28px;
+  overflow: visible;  /* fontos, hogy ne vágja le a shadow-t */
+}
+
+.mat-mdc-dialog-inner-container {
+  background: none;
+  box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+  border-radius: 28px;
+  overflow: visible;
+}
+.mat-mdc-floating-label {
+  color:#c89bff !important;
+  font-weight: bolder;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  color: #c89bff !important;
+  font-weight: 600;
+}
+
+
+
+
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #c89bff !important;
+  --mdc-filled-text-field-label-text-color: #c89bff !important;
+  --mdc-filled-text-field-input-text-color:  #c89bff !important;
+}
+
+/* input szöveg */
+.mat-mdc-input-element {
+  color:#c89bff  !important;
+  font-weight: 500;
+}
+
+
+
+.mat-mdc-form-field-infix {
+  width: 100% !important;
+  min-width: 0;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+
+
+/* wrapper hover */
+.mat-mdc-text-field-wrapper:hover {
+  background-color: #220044 !important;
+  transition: 0.2s;
+}
+
+
+ .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  cursor: pointer;
+  background: #1a0033 !important;
+  border-radius: 10px;
+}
+
+
+
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 0 2px #8b5cf6;
+  border-radius: 10px;
+}
+
+
+.mat-mdc-floating-label {
+  color: #c084fc !important;
+}
+
+
+.mat-mdc-select-panel {
+  background-color: #1a0033 !important;
+  border-radius: 14px;
+  padding: 8px 0;
+  box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+
+
+.mat-mdc-option {
+  color:#c89bff  !important;
+  background: transparent !important;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+/* hover */
+ .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: linear-gradient(90deg,rgba(181, 122, 245, 0.4), #c89bff  ) !important;
+  color:#c89bff !important;
+}
+
+
+
+.mat-mdc-option.mdc-list-item--selected {
+   background: linear-gradient(90deg,rgba(181, 122, 245, 0.4), #c89bff  ) !important;
+  color:#c89bff  !important;
+  font-weight: 500;
+}
+
+
+
+.mat-mdc-option.mdc-list-item--active {
+  background: #4c1d95 !important;
+}
+
+
+
+.mat-ripple-element {
+  background-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+
+
+.cdk-overlay-pane {
+  border-radius: 14px;
+}
+
+
+.mat-mdc-select-panel {
+  background: rgba(26, 0, 51, 0.85) !important;
+  backdrop-filter: blur(12px);
+}

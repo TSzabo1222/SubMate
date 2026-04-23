@@ -1,0 +1,135 @@
+Szuper 👌 akkor nézzük meg, hogyan tudod **a functional guardot (`authGuard`)** összekapcsolni egy **`AuthService`**-szel — ez az egyik leggyakoribb (és legjobb) megoldás.
+
+---
+
+## 🔹 Cél
+
+Ha a felhasználó **be van jelentkezve**, akkor mehet a védett oldalra (pl. `/dashboard`).
+Ha **nincs bejelentkezve**, akkor **átirányítjuk a /login oldalra**.
+
+---
+
+## 🔹 1. Készíts egy AuthService-t
+
+Terminálban:
+
+```bash
+ng g service auth
+```
+
+Ez létrehoz egy `auth.service.ts` fájlt.
+Szerkeszd meg így:
+
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  constructor() { }
+
+  // Ellenőrizzük, hogy a felhasználó be van-e jelentkezve
+  isLoggedIn(): boolean {
+    const token = sessionStorage.getItem('userToken');
+    return !!token; // true, ha van token
+  }
+
+  // Bejelentkezés (pl. API válasz után)
+  login(token: string): void {
+    sessionStorage.setItem('userToken', token);
+  }
+
+  // Kijelentkezés
+  logout(): void {
+    sessionStorage.removeItem('userToken');
+  }
+}
+```
+
+Ez most egy egyszerű példa — valóságban itt valószínűleg API hívás is lenne, ami visszaadja a tokent, stb.
+
+---
+
+## 🔹 2. Módosítsd a guardot
+
+Most már az `AuthService`-t használjuk a guardban, nem közvetlenül a `sessionStorage`-ot.
+
+```typescript
+import { CanActivateFn, Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { AuthService } from './auth.service';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.isLoggedIn()) {
+    return true; // ✅ Be van jelentkezve
+  } else {
+    router.navigate(['/login']); // ❌ Nincs bejelentkezve → login oldal
+    return false;
+  }
+};
+```
+
+---
+
+## 🔹 3. Használat a `app-routing.module.ts`-ben
+
+```typescript
+import { authGuard } from './auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: 'login' }
+];
+```
+
+---
+
+## 🔹 4. Példa login logikára
+
+Egy egyszerű login komponensben például így hívhatod meg:
+
+```typescript
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
+@Component({
+  selector: 'app-login',
+  template: `
+    <h2>Bejelentkezés</h2>
+    <button (click)="login()">Belépés</button>
+  `
+})
+export class LoginComponent {
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  login() {
+    // Példa: token elmentése (valóságban ezt API adná vissza)
+    this.authService.login('fake-jwt-token');
+    this.router.navigate(['/dashboard']);
+  }
+}
+```
+
+---
+
+## 🔹 5. Teszteld le
+
+* Menj `/dashboard`-ra → ha nincs token → login oldalra visz.
+* Nyomd meg a "Belépés" gombot → login → dashboardra visz.
+* Frissítsd az oldalt → bent maradsz.
+* Ha `logout()`-ot hívsz → újra loginra visz.
+
+---
+
+Ha szeretnéd, adhatok hozzá még egy **logout funkciót** a `DashboardComponent`-be, ami kijelentkezteti a felhasználót és visszairányítja a login oldalra.
+Szeretnéd, hogy azt is megmutassam?
