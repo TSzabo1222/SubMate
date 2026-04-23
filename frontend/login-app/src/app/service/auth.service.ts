@@ -20,17 +20,15 @@ export class AuthService {
 
 
 
-updateService(id: any, data: any) {
-  return this._http.put(
-    'http://localhost:3000/subscription/' + id,
-    data
-  );
-}
-addService(data: any) {
-  return this._http.post('http://localhost:3000/subscription', data);
+updateService(id: number, data: any) {
+  return this._http.put(`http://localhost:3000/supscriptions/${id}`, data);
 }
 
-//ÖSSZES lekérése (EZ KELL A LISTÁHOZ)
+addService(data: any) {
+  return this._http.post(`http://localhost:3000/supscription`, data);
+}
+
+
 getServices() {
   return this._http.get<any[]>('http://localhost:3000/supscriptions');
 }

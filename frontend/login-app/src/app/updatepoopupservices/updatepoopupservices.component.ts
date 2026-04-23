@@ -28,17 +28,16 @@ export class UpdatepoopupservicesComponent implements OnInit {
     });
   }
 
-  ssave() {
+ save() {
   const payload = this.form.value;
 
-  if (this.data && this.data.serv_id) {
+  if (this.data?.serv_id) {
     this.service.updateService(this.data.serv_id, payload)
       .subscribe(() => this.dialogRef.close(true));
   } else {
     this.service.addService(payload)
       .subscribe(() => this.dialogRef.close(true));
   }
-
-    }
+}
   
 }

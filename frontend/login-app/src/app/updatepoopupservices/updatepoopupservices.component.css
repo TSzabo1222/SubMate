@@ -1,93 +1,99 @@
-.content{
-  padding-top:20px;
-  color:#c89bff;
+.content {
+  padding-top: 20px;
+  color: #c89bff;
+  min-width: 500px;
 }
 
-.row{
-  display:flex;
-  gap:10px;
-  margin-bottom:15px;
+.row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 18px;
+  align-items: center;
 }
 
-mat-form-field{
-  flex:1;
+mat-form-field {
+  flex: 1;
 }
 
-[mat-dialog-title]{
-  background:linear-gradient(145deg,#0d001f,#1a0b45);
-  color:#c89bff;
-  border-bottom:1px solid #3a0ca3;
-  padding:16px;
+/* 🔥 RADIO GROUP DESIGN */
+mat-radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 10px 0;
 }
 
-[mat-dialog-title] h5{
-  margin:0;
-  font-weight:600;
+/* 🔥 RADIO BUTTON TEXT */
+.mat-mdc-radio-button {
+  color: #c89bff !important;
+  font-weight: 500;
 }
 
-.mdc-text-field{
-  background:#140028;
-  border-radius:8px !important;
-  box-shadow:0 4px 15px rgba(123,47,247,0.6);
+/* 🔥 TITLE FIX */
+[mat-dialog-title] {
+  background: linear-gradient(145deg, #0d001f, #1a0b45);
+  color: #c89bff;
+  border-bottom: 1px solid #3a0ca3;
+  padding: 16px 20px;
+  border-radius: 16px 16px 0 0;
 }
 
-.mdc-text-field__input{
-  color:#c89bff !important;
-}
-
-.mdc-floating-label{
-  color:#c89bff !important;
-}
-
-.mdc-text-field--outlined .mdc-notched-outline__leading,
-.mdc-text-field--outlined .mdc-notched-outline__notch,
-.mdc-text-field--outlined .mdc-notched-outline__trailing{
-  border-color:#3a0ca3 !important;
-}
-
-.mdc-text-field--focused .mdc-notched-outline__leading,
-.mdc-text-field--focused .mdc-notched-outline__notch,
-.mdc-text-field--focused .mdc-notched-outline__trailing{
-  border-color:#b57af5 !important;
-}
-
-.mat-mdc-radio-button{
-  color:#c89bff !important;
-}
-
-.mat-mdc-radio-button .mdc-radio__outer-circle{
-  border-color:#7b2ff7 !important;
-}
-
-.mat-mdc-radio-button.mat-accent .mdc-radio__inner-circle{
-  background:#b57af5 !important;
-}
-
-.mat-datepicker-toggle{
-  color:#c89bff !important;
-}
-
-.mat-mdc-dialog-container{
-  background:linear-gradient(135deg,#0f0f0f,#1a001f,#2b0033);
-  border:1px solid #3a0ca3;
-  border-radius:16px;
-  box-shadow:0 8px 25px rgba(123,47,247,0.6);
-}
-
-.mat-mdc-form-field-hint{
-  color:#c89bff !important;
-}
-
-button[mat-raised-button] {
-  background: linear-gradient(135deg, #7b2ff7, #b57af5);
-  color: #fff !important;
+[mat-dialog-title] h5 {
+  margin: 0;
   font-weight: 600;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.5);
-  transition: 0.3s ease;
+  font-size: 18px;
+  letter-spacing: 0.5px;
 }
 
-button[mat-raised-button]:hover {
+/* 🔥 DIALOG BODY FIX */
+.mat-mdc-dialog-content {
+  background: linear-gradient(135deg, #120018, #1a001f);
+  padding: 20px;
+}
+
+/* 🔥 INPUT CARD FEEL */
+.mdc-text-field {
+  background: #140028;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 15px rgba(123, 47, 247, 0.35);
+  transition: 0.3s;
+}
+
+.mdc-text-field:hover {
+  box-shadow: 0 6px 20px rgba(181, 122, 245, 0.4);
+}
+
+/* 🔥 BUTTON AREA */
+.mat-mdc-dialog-actions {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: flex-end;
+  background: #120018;
+  border-top: 1px solid #3a0ca3;
+}
+
+/* 🔥 BUTTON GLOW FIX */
+bbutton[mat-raised-button],
+.mat-mdc-raised-button {
+  background: linear-gradient(135deg, #7b2ff7, #b57af5) !important;
+  color: #ebd8ff !important;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 15px rgba(123,47,247,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover */
+button[mat-raised-button]:hover,
+.mat-mdc-raised-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(181, 122, 245, 0.7);
+  box-shadow: 0 8px 25px rgba(181,122,245,0.7);
+}
+
+/* click ripple finomítása */
+.mat-ripple-element {
+  background-color: rgba(181,122,245,0.4) !important;
 }

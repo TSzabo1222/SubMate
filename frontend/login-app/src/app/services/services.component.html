@@ -1,34 +1,10 @@
-<!-- CREATE TABLE services (
-  serv_id INT AUTO_INCREMENT PRIMARY KEY,
-  serv_name VARCHAR(20) NOT NULL,
-  cat_id INT,
-  serv_start DATE NOT NULL,
-  serv_end DATE NOT NULL,
-  user_id INT,
-  cost INT, -->
-<h4>Kategória választás</h4>
-<mat-form-field>
-  <mat-label>Kategóriák</mat-label>
-  <mat-select>
-    @for (cat of categories; track cat) {
-    <mat-option [value]="cat.value">{{cat.viewValue}}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
-
-<a (click)="Teszt()" mat-raised-button type="submit">Add</a>
-<h4>Szolgáltatások</h4>
-
-<a mat-raised-button (click)="Teszt()">Add</a>
-
-<div class="services-container">
 <h4>Kategória választás</h4>
 
 <mat-form-field>
   <mat-label>Kategóriák</mat-label>
   <mat-select>
     <mat-option *ngFor="let cat of categories" [value]="cat.value">
-      {{cat.viewValue}}
+      {{ cat.viewValue }}
     </mat-option>
   </mat-select>
 </mat-form-field>
@@ -36,10 +12,11 @@
 <a mat-raised-button (click)="add()">Add</a>
 
 <div class="services-container">
+
   <mat-card *ngFor="let serv of services" class="service-card">
 
     <mat-card-header>
-      <mat-card-title>{{ serv.cat_name }}</mat-card-title>
+      <mat-card-title>{{ serv.serv_name }}</mat-card-title>
       <mat-card-subtitle>{{ serv.user_name }}</mat-card-subtitle>
     </mat-card-header>
 
@@ -56,5 +33,5 @@
     </mat-card-actions>
 
   </mat-card>
-</div>
 
+</div>

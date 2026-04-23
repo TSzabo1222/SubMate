@@ -1,27 +1,53 @@
 <form [formGroup]="form" (ngSubmit)="save()">
 
-  <mat-form-field>
-    <input matInput formControlName="cat_name" placeholder="Kategória">
-  </mat-form-field>
+  <div mat-dialog-content class="content">
 
-  <mat-form-field>
-    <input matInput formControlName="user_name" placeholder="Név">
-  </mat-form-field>
+    <!-- KATEGÓRIA -->
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Kategória</mat-label>
+        <input matInput formControlName="cat_name">
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input matInput formControlName="serv_start" placeholder="Kezdet">
-  </mat-form-field>
+    <!-- NÉV -->
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Név</mat-label>
+        <input matInput formControlName="user_name">
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input matInput formControlName="serv_end" placeholder="Vég">
-  </mat-form-field>
+    <!-- DÁTUMOK -->
+    <div class="row">
 
-  <mat-form-field>
-    <input matInput type="number" formControlName="cost" placeholder="Ár">
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Kezdet</mat-label>
+        <input matInput formControlName="serv_start">
+      </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">
-    Mentés
-  </button>
+      <mat-form-field appearance="outline">
+        <mat-label>Vég</mat-label>
+        <input matInput formControlName="serv_end">
+      </mat-form-field>
+
+    </div>
+
+    <!-- ÁR -->
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ár</mat-label>
+        <input matInput type="number" formControlName="cost">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <!-- BUTTON -->
+  <div mat-dialog-actions>
+    <button mat-raised-button  type="submit">
+      Mentés
+    </button>
+  </div>
 
 </form>
