@@ -1,0 +1,31 @@
+
+<body>
+<mat-card appearance="outlined">
+  <mat-card-title>
+    <h1>Bejelentkezés</h1>
+  </mat-card-title>
+    <mat-card-content>
+
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Felhasználónév</mat-label>
+          <input matInput formControlName="userName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Jelszó</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button type="submit">Bejelentkezés</button>
+            <a routerLink="/register" mat-flat-button>Új Felhasználó</a>
+        </div>
+      </form>
+
+</mat-card-content>
+</mat-card>
+
+</body>

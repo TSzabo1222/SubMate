@@ -1,0 +1,69 @@
+<div mat-dialog-title>
+  <h5>Szolgáltatás felvitele</h5>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <div mat-dialog-content class="content">
+
+    <!-- KATEGÓRIA -->
+    <div class="row">
+      <mat-radio-group formControlName="cat_id">
+        <mat-label><strong>Kategória:</strong></mat-label>
+
+        <mat-radio-button value="0">Szórakozás</mat-radio-button>
+        <mat-radio-button value="1">Szoftverek</mat-radio-button>
+        <mat-radio-button value="2">Egészség</mat-radio-button>
+
+      </mat-radio-group>
+    </div>
+
+    <!-- NÉV -->
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Szolgáltatás neve</mat-label>
+        <input matInput formControlName="serv_name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Felhasználó ID</mat-label>
+        <input matInput formControlName="user_id" />
+      </mat-form-field>
+    </div>
+
+    <!-- DÁTUMOK -->
+    <div class="row">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Kezdés</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="serv_start">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Vége</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="serv_end">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <!-- ÁR -->
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ár</mat-label>
+        <input matInput type="number" formControlName="cost">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit">
+      Mentés
+    </button>
+  </div>
+
+</form>
