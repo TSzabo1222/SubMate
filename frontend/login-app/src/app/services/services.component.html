@@ -1,0 +1,37 @@
+<h4>Kategória választás</h4>
+
+<mat-form-field>
+  <mat-label>Kategóriák</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let cat of categories" [value]="cat.value">
+      {{ cat.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<a mat-raised-button (click)="add()">Add</a>
+
+<div class="services-container">
+
+  <mat-card *ngFor="let serv of services" class="service-card">
+
+    <mat-card-header>
+      <mat-card-title>{{ serv.serv_name }}</mat-card-title>
+      <mat-card-subtitle>{{ serv.user_name }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{ serv.serv_start }}</p>
+      <p>{{ serv.serv_end }}</p>
+      <p>{{ serv.cost }} Ft</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="edit(serv)">
+        Szerkesztés
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

@@ -1,0 +1,49 @@
+<html>
+<body>
+    <div class="container-fluid">
+      <mat-card appearance="outlined">
+        <mat-card-title>
+          <h1>Regisztráció</h1>
+        </mat-card-title>
+        <mat-card-content>
+          <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
+            <mat-form-field class="example-full-width">
+              <mat-label>Felhasználónév</mat-label>
+              <input matInput formControlName="id">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Név</mat-label>
+              <input matInput formControlName="u_name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Jelszó</mat-label>
+              <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="pw">
+              <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+
+            <div>
+              <mat-radio-group aria-label="Gender" formControlName="gender">
+                <mat-radio-button value="male">Férfi</mat-radio-button>
+                <mat-radio-button value="female">Nő</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div>
+              <button mat-raised-button type="submit">Regisztráció</button>
+              <a routerLink="/login" mat-flat-button>Vissza a Bejelentkezéshez</a>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </body>
+</html>

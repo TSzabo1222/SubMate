@@ -1,0 +1,123 @@
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #03000d, #2b0057);
+}
+
+
+.mat-mdc-dialog-container {
+  background: #0d001f !important;
+  border-radius: 28px;
+  overflow: visible;
+  box-shadow: 0 8px 25px rgba(123, 21, 247, 0.6);
+}
+
+.mat-mdc-dialog-inner-container {
+  background: none;
+  border-radius: 28px;
+}
+
+/* dialog content */
+.mat-mdc-dialog-container .mat-mdc-dialog-content {
+  background: #0d001f !important;
+}
+
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #1a0033;
+  --mdc-filled-text-field-label-text-color: #c89bff;
+  --mdc-filled-text-field-input-text-color: #c89bff;
+}
+
+.mat-mdc-input-element {
+  color: #c89bff !important;
+  font-weight: 500;
+}
+
+.mdc-text-field {
+  background: #140028;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 15px rgba(123,47,247,0.4);
+}
+
+/* hover */
+.mat-mdc-text-field-wrapper:hover {
+  background-color: #220044 !important;
+}
+
+/* focus */
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 0 2px #8b5cf6;
+}
+
+/* labels */
+.mat-mdc-floating-label,
+.mdc-label {
+  color: #c89bff !important;
+  font-weight: 600;
+}
+
+/* ===== SELECT ===== */
+
+.mat-mdc-select-panel {
+  background: rgba(26, 0, 51, 0.9) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+}
+
+.mat-mdc-option {
+  color: #c89bff !important;
+}
+
+.mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: rgba(181, 122, 245, 0.4) !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: rgba(181, 122, 245, 0.6) !important;
+}
+
+/* ripple */
+.mat-ripple-element {
+  background-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+
+
+.mat-mdc-raised-button .mat-mdc-button-touch-target {
+  background: linear-gradient(135deg, #7b15f7, #c89bff) !important;
+   color: #c89bff !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(123,21,247,0.6);
+}
+
+.mdc-button__label{
+   color: #c89bff !important;
+}
+/* 
+.mat-mdc-form-field {
+   background: rgba(26, 0, 51, 0.9) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+} */
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background: rgba(26, 0, 51, 0.9) !important;
+  border-radius: 30px !important;
+  overflow: rgba(26, 0, 51, 0.9) !important;
+}
+
+/* .mat-mdc-input-element .ng-tns-c508571215-11 .mat-mdc-form-field-input-control .mdc-text-field__input .ng-valid .cdk-text-field-autofill-monitored {
+  background: #1a0033 !important;
+} */
+
+input[type="number"] {
+  color-scheme: dark;
+}
+
+h5 {
+  color: #c89bff !important;
+  font-weight: 600;
+}
