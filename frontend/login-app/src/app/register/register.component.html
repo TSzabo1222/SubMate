@@ -1,49 +1,83 @@
-<html>
-<body>
-    <div class="container-fluid">
-      <mat-card appearance="outlined">
-        <mat-card-title>
-          <h1>Regisztráció</h1>
-        </mat-card-title>
-        <mat-card-content>
-          <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
-            <mat-form-field class="example-full-width">
-              <mat-label>Felhasználónév</mat-label>
-              <input matInput formControlName="id">
-            </mat-form-field>
+<div class="container-fluid">
 
-            <mat-form-field class="example-full-width">
-              <mat-label>Név</mat-label>
-              <input matInput formControlName="u_name">
-            </mat-form-field>
+  <mat-card appearance="outlined">
 
-            <mat-form-field class="example-full-width">
-              <mat-label>Jelszó</mat-label>
-              <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="pw">
-              <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
-                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-              </button>
-            </mat-form-field>
+    <mat-card-title>
+      <h1>
+        Regisztráció
 
-            <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
+        <button mat-icon-button type="button" (click)="showRegistrationRules()">
+          <mat-icon>info</mat-icon>
+        </button>
+      </h1>
+    </mat-card-title>
 
-            <div>
-              <mat-radio-group aria-label="Gender" formControlName="gender">
-                <mat-radio-button value="male">Férfi</mat-radio-button>
-                <mat-radio-button value="female">Nő</mat-radio-button>
-              </mat-radio-group>
-            </div>
+    <mat-card-content>
 
-            <div>
-              <button mat-raised-button type="submit">Regisztráció</button>
-              <a routerLink="/login" mat-flat-button>Vissza a Bejelentkezéshez</a>
-            </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </body>
-</html>
+      <form [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
+
+        <!-- USERNAME -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Felhasználónév</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+
+        <!-- NAME -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Név</mat-label>
+          <input matInput formControlName="u_name">
+        </mat-form-field>
+
+        <!-- PASSWORD -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Jelszó</mat-label>
+
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            matInput
+            formControlName="pw">
+
+          <button mat-icon-button matSuffix type="button"
+                  (click)="hidePassword = !hidePassword">
+            <mat-icon>
+              {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+        </mat-form-field>
+
+        <small style="color:#c89bff;">
+          Jelszó: min. 8 karakter, kis- és nagybetű, szám és speciális karakter szükséges.
+        </small>
+
+        <!-- EMAIL -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <!-- GENDER -->
+        <div>
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="male">Férfi</mat-radio-button>
+            <mat-radio-button value="female">Nő</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <!-- BUTTONS -->
+        <div style="margin-top: 15px;">
+          <button mat-raised-button color="primary" type="submit">
+            Regisztráció
+          </button>
+
+          <a routerLink="/login" mat-flat-button>
+            Vissza a Bejelentkezéshez
+          </a>
+        </div>
+
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
