@@ -19,6 +19,9 @@ export class AuthService {
    }
 
 
+deleteService(id: number) {
+  return this._http.delete(`http://localhost:3000/subscription/${id}`);
+}
 
 updateService(id: number, data: any) {
   return this._http.put(`http://localhost:3000/subscription/${id}`, data);

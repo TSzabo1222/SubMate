@@ -26,7 +26,8 @@ export class EditServiceDialogComponent implements OnInit {
       serv_end: new FormControl(this.data?.serv_end),
       valid: new FormControl(this.data?.valid)
     });
-  }save() {
+  }
+  save() {
 
   const payload = {
     serv_name: this.data?.serv_name,
@@ -51,6 +52,7 @@ export class EditServiceDialogComponent implements OnInit {
       });
   }
 
+  
   
 }
 }

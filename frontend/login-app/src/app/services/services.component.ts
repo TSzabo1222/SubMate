@@ -12,6 +12,7 @@ import { EditServiceDialogComponent } from '../edit-service-dialog/edit-service-
 export class ServicesComponent implements OnInit {
 
   services: any[] = [];
+  filteredServices: any[] = [];
 
   categories = [
     { value: '0', viewValue: 'Szórakozás' },
@@ -29,27 +30,54 @@ export class ServicesComponent implements OnInit {
     this.loadServices();
   }
 
-loadServices() {
-  this.service.getAllCat().subscribe((data: any) => {
-    console.log('RAW DATA:', data);
-    this.services = data ?? [];
-  });
-}
-add() {
-  this.dialog.open(UpdatepoopupservicesComponent, {
-    width: '50%',
-    data: {}
-  }).afterClosed().subscribe(res => {
-    if (res) this.loadServices();
-  });
-}
-
-edit(serv: any) {
-  this.dialog.open(EditServiceDialogComponent, {
-    width: '50%',
-    data: serv
-  }).afterClosed().subscribe(res => {
-    if (res) this.loadServices();
-  });
-}
+  loadServices() {
+    this.service.getAllCat().subscribe((data: any) => {
+      this.services = data ?? [];
+      this.filteredServices = [...this.services];
+    });
   }
+
+  filterByCategory(catValue: string) {
+
+  const selectedCategory = this.categories.find(c => c.value === catValue)?.viewValue;
+
+  if (!selectedCategory || selectedCategory === 'Összes') {
+    this.filteredServices = [...this.services];
+    return;
+  }
+
+  this.filteredServices = this.services.filter(s =>
+    s.cat_name === selectedCategory
+  );
+
+  }
+
+  add() {
+    this.dialog.open(UpdatepoopupservicesComponent, {
+      width: '50%',
+      data: {}
+    }).afterClosed().subscribe(res => {
+      if (res) this.loadServices();
+    });
+  }
+
+  edit(serv: any) {
+    this.dialog.open(EditServiceDialogComponent, {
+      width: '50%',
+      data: serv
+    }).afterClosed().subscribe(res => {
+      if (res) this.loadServices();
+    });
+  }
+
+  delete(serv: any) {
+    if (!serv?.serv_id) return;
+
+    if (confirm('Biztos törölni akarod?')) {
+      this.service.deleteService(serv.serv_id)
+        .subscribe(() => {
+          this.loadServices();
+        });
+    }
+  }
+}

@@ -15,7 +15,7 @@ export class UpdatepoopupservicesComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<UpdatepoopupservicesComponent>,
     private service: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -28,16 +28,18 @@ export class UpdatepoopupservicesComponent implements OnInit {
     });
   }
 
- save() {
-  const payload = this.form.value;
+  save() {
+    const payload = this.form.value;
 
-  if (this.data?.serv_id) {
-    this.service.updateService(this.data.serv_id, payload)
-      .subscribe(() => this.dialogRef.close(true));
-  } else {
-    this.service.addService(payload)
-      .subscribe(() => this.dialogRef.close(true));
+    if (this.data?.serv_id) {
+      this.service.updateService(this.data.serv_id, payload)
+        .subscribe(() => this.dialogRef.close(true));
+    } else {
+      this.service.addService(payload)
+        .subscribe(() => this.dialogRef.close(true));
+    }
+
+
   }
-}
-  
+
 }

@@ -89,7 +89,7 @@ html, body {
 .mat-mdc-raised-button .mat-mdc-button-touch-target {
   background: linear-gradient(135deg, #7b15f7, #c89bff) !important;
    color: #c89bff !important;
-  border-radius: 10px;
+  border-radius: 19px;
   box-shadow: 0 4px 15px rgba(123,21,247,0.6);
 }
 
