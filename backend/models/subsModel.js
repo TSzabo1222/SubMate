@@ -4,13 +4,17 @@ const db = require("../config/db");
 // Összes szolgáltatás
 exports.getAllSubscriptions = () => {
   return new Promise((resolve, reject) => {
-    db.query("SELECT * FROM services", (err, results) => {
-      if (err) return reject(err);
-      if (results.length === 0) {
-        return reject({ status: 404, message: "Nincsenek szolgáltatások!" });
+    db.query(
+      `SELECT 
+        s.*,
+        u.u_name AS user_name
+      FROM services s
+      LEFT JOIN user u ON s.user_id = u.user_id`,
+      (err, results) => {
+        if (err) return reject(err);
+        resolve(results);
       }
-      resolve(results);
-    });
+    );
   });
 };
 
@@ -18,7 +22,12 @@ exports.getAllSubscriptions = () => {
 exports.getSubscriptionById = (id) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "SELECT * FROM services WHERE serv_id = ?",
+      `SELECT 
+        s.*,
+        u.u_name AS user_name
+      FROM services s
+      LEFT JOIN user u ON s.user_id = u.user_id
+      WHERE s.serv_id = ?`,
       [id],
       (err, results) => {
         if (err) return reject(err);
@@ -27,7 +36,7 @@ exports.getSubscriptionById = (id) => {
           return reject({ status: 404, message: "Szolgáltatás nem található!" });
         }
 
-        resolve(results);
+        resolve(results[0]);
       }
     );
   });
